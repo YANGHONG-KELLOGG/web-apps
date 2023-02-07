@@ -1,0 +1,17 @@
+<h1> This is a title for class 06 Tacos </h1>
+<p> There are many delish tacos </p>
+
+<%
+fillings = ["Carnites","steak","chicken"]
+%>
+
+<p> Currently, there are <%= fillings.count %> kinds of tacos;</p>
+
+<ul>
+<!-- <li>Carnites<li> -->
+
+<% for taco in fillings %> 
+<li> <%=taco %>
+<% end %> 
+
+</ul>
