@@ -2,13 +2,13 @@
 
 <%
 
-ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King", "Ace"]
-suits = ["Clubs", "Diamonds", "Hearts", "Spades"]
+ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, "jack", "queen", "king", "ace"]
+suits = ["clubs", "diamonds", "hearts", "spades"]
 
 deck = []
 for rank in ranks
   for suit in suits
-    card = "#{rank} of #{suit}"
+    card = "#{rank}_of_#{suit}"
     deck.push(card)
   end
 end
@@ -20,11 +20,45 @@ hand = shuffled_deck[0,5]
 
 <!-- <p><%= shuffled_deck %></p> -->
 
+
 <ul>
 <%for card in hand%>
-<li><%=card%>
+<li><%=card%></li>
+<img src ="/images/cards/<%=card%>.svg">
 <%end%>
+
+
+
 
 </ul>
 
 <p><a href="cards">Deal again.</a></p>
+
+
+<!-- below is the solution -->
+
+<%
+  ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, "jack", "queen", "king", "ace"]
+  suits = ["clubs", "diamonds", "hearts", "spades"]
+
+  deck = []
+  for rank in ranks
+    for suit in suits
+      deck << "#{rank}_of_#{suit}"
+    end
+  end
+  shuffled_deck = deck.shuffle
+  hand = shuffled_deck[0,5]
+%>
+
+<h1>Welcome to the ENTR-451 Casino!</h1>
+
+<p>
+  <% for card in hand %>
+    <img src="/images/cards/<%= card %>.svg">
+  <% end %>
+</p>
+
+<p>
+  <a href="/cards">Deal Again!</a>
+</p>
